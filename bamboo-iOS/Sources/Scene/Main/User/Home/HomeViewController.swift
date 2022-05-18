@@ -9,8 +9,15 @@ import UIKit
 import ReactorKit
 import RxSwift
 import Base
+import BamBooSetting
 
 final class HomeViewController: BaseVC<HomeReactor>{
     
-
+    //MARK: - Method
+    override func configureUI() {
+        navigationItem.applyImageNavigation()
+        navigationController?.navigationCustomBar()
+    }
+    
+    
 }

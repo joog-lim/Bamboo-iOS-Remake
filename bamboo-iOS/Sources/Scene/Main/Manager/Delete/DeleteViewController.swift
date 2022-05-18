@@ -9,8 +9,14 @@ import UIKit
 import ReactorKit
 import RxSwift
 import Base
+import BamBooSetting
+
 
 final class DeleteViewController: BaseVC<DeleteReactor>{
     
-    
+    //MARK: - Method
+    override func configureUI() {
+        navigationItem.applyImageNavigation()
+        navigationController?.navigationCustomBar()
+    }
 }

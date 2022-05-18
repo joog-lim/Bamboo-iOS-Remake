@@ -11,7 +11,7 @@ import SnapKit
 import UIUtil
 
 //MARK: - Navigation Setting
-extension UINavigationItem {
+public extension UINavigationItem {
     func applyImageNavigation(){
         let iv = UIImageView(image: UIImage(named: "BAMBOO_Logo"))
         iv.snp.makeConstraints { (make) in
@@ -21,9 +21,9 @@ extension UINavigationItem {
         titleView = iv
     }
 }
-extension UINavigationController{
+public extension UINavigationController{
     func navigationCustomBar(){
-        navigationBar.layer.applySketchShadow(color: UIColor.red, alpha: 0.25, x: 1, y: 0, blur: 10, spread: 0)
+        navigationBar.layer.applySketchShadow(color: UIColor.bambooGreen, alpha: 0.25, x: 1, y: 0, blur: 10, spread: 0)
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         navigationBar.shadowImage = UIImage()
     }
