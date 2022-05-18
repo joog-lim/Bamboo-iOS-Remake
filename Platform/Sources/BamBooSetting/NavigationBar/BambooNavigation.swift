@@ -8,22 +8,23 @@
 import UIKit
 import Then
 import SnapKit
+import UIUtil
 
-final class BambooNavigationBar : UIView{
-    private let logo = UIImageView(image: UIImage(named: "BAMBOO_Logo"), contentMode: .scaleAspectFill)
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        addSubview(logo)
-        
-        logo.snp.makeConstraints{
-            $0.center.equalToSuperview()
-            $0.height.equalTo(20)
-            $0.width.equalTo(40)
+//MARK: - Navigation Setting
+extension UINavigationItem {
+    func applyImageNavigation(){
+        let iv = UIImageView(image: UIImage(named: "BAMBOO_Logo"))
+        iv.snp.makeConstraints { (make) in
+            make.height.equalTo(19)
+            make.width.equalTo(44)
         }
+        titleView = iv
     }
-    @available(*, unavailable)
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+}
+extension UINavigationController{
+    func navigationCustomBar(){
+        navigationBar.layer.applySketchShadow(color: UIColor.red, alpha: 0.25, x: 1, y: 0, blur: 10, spread: 0)
+        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        navigationBar.shadowImage = UIImage()
     }
 }

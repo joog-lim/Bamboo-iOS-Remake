@@ -36,7 +36,9 @@ let package = Package(
             ]),
         .target(
             name: "UIUtil",
-            dependencies: []),
+            dependencies: [
+
+            ]),
         .target(
             name: "RxUtil",
             dependencies: [

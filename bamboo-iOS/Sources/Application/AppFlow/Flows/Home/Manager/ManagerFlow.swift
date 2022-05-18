@@ -3,6 +3,7 @@ import RxRelay
 import RxSwift
 import UIKit
 import UIUtil
+import BamBooSetting
 
 final class ManagerFlow : Flow{
     
@@ -16,7 +17,8 @@ final class ManagerFlow : Flow{
         return self.rootViewController
     }
     
-    let rootViewController: UITabBarController = .init()
+    let rootViewController = UITabBarController().then{$0.bambooTabBar()}
+    
     private let accpetFlow :  AcceptFlow = .init()
     private let standByFlow : StandByFlow = .init()
     private let refusalFlow : RefusalFlow = .init()
