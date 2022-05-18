@@ -7,4 +7,12 @@ public extension UIButton{
         self.titleLabel?.font = font
         self.setTitleColor(titleColor, for: .normal)
     }
+    
+    convenience init(image : UIImage, tintColor : UIColor,backgroundColor : UIColor = .clear){
+        self.init()
+        self.setImage(image, for: .normal)
+        self.contentMode = .scaleAspectFit
+        self.tintColor = tintColor
+        self.backgroundColor = backgroundColor
+    }
 }
