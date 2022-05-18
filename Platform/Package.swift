@@ -17,6 +17,9 @@ let package = Package(
             name: "RxUtil",
             targets: ["RxUtil"]),
         .library(
+            name: "LogUtil",
+            targets: ["LogUtil"]),
+        .library(
             name: "BamBooSetting",
             targets: ["BamBooSetting"]),
     ],
@@ -38,6 +41,11 @@ let package = Package(
             name: "UIUtil",
             dependencies: [
 
+            ]),
+        .target(
+            name: "LogUtil",
+            dependencies: [
+                
             ]),
         .target(
             name: "RxUtil",
