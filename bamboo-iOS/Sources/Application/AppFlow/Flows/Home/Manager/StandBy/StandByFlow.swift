@@ -37,8 +37,7 @@ final class StandByFlow : Flow{
 private extension StandByFlow {
     func coordinatorToStandBy() -> FlowContributors{
         let vc = AppDelegate.container.resolve(StandByViewController.self)!
-        let reactor = AppDelegate.container.resolve(StandByReactor.self)!
         self.rootViewController.setViewControllers([vc], animated: true)
-        return .one(flowContributor: .contribute(withNextPresentable: vc,withNextStepper: reactor))
+        return .one(flowContributor: .contribute(withNextPresentable: vc,withNextStepper: vc.reactor!))
     }
 }

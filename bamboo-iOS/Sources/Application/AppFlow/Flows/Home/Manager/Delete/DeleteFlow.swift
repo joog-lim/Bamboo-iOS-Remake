@@ -37,8 +37,7 @@ final class DeleteFlow : Flow{
 private extension DeleteFlow {
     func coordinatorToDelete() -> FlowContributors{
         let vc = AppDelegate.container.resolve(DeleteViewController.self)!
-        let reactor = AppDelegate.container.resolve(DeleteReactor.self)!
         self.rootViewController.setViewControllers([vc], animated: true)
-        return .one(flowContributor: .contribute(withNextPresentable: vc,withNextStepper: reactor))
+        return .one(flowContributor: .contribute(withNextPresentable: vc,withNextStepper: vc.reactor!))
     }
 }

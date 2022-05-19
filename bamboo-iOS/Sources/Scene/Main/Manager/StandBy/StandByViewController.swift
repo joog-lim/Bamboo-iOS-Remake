@@ -9,8 +9,13 @@ import UIKit
 import ReactorKit
 import RxSwift
 import Base
+import BamBooSetting
 
 final class StandByViewController: BaseVC<StandByReactor>{
-    
-    
+        
+    //MARK: - Method
+    override func configureUI() {
+        navigationItem.applyImageNavigation()
+        navigationController?.navigationCustomBar()
+    }
 }

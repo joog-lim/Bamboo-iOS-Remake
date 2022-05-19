@@ -3,6 +3,8 @@ import RxRelay
 import RxSwift
 import UIKit
 import UIUtil
+import Then
+import BamBooSetting
 
 final class UserFlow : Flow{
     
@@ -15,7 +17,7 @@ final class UserFlow : Flow{
         return self.rootViewController
     }
     
-    let rootViewController: UITabBarController = .init()
+    let rootViewController = UITabBarController().then{$0.bambooTabBar()}
     private let homeFlow :  HomeFlow = .init()
     private let ruleFlow : RuleFlow = .init()
     private let detailFlow : DetailFlow = .init()

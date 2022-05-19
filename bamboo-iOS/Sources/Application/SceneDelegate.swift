@@ -8,6 +8,8 @@
 import UIKit
 import RxSwift
 import RxFlow
+import InjectUtil
+import Inject
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -45,5 +47,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             })
             .disposed(by: disposeBag)
     }
+
 }
 

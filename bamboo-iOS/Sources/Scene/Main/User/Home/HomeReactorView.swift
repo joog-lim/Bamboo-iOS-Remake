@@ -18,7 +18,7 @@ final class HomeReactor: Reactor ,Stepper{
 
     //MARK: - Reactor
     enum Action {
-        // actiom cases
+        case writeButtonDidTap
     }
     
     enum Mutation {
@@ -40,15 +40,18 @@ final class HomeReactor: Reactor ,Stepper{
 //MARK: - Mutate
 extension HomeReactor {
     func mutate(action: Action) -> Observable<Mutation> {
-        // switch action {
-        // }
+        switch action{
+        case .writeButtonDidTap:
+            steps.accept(BambooStep.ReportModalIsRequired)
+            return .empty()
+        }
     }
 }
 
 //MARK: - reduce
 extension HomeReactor {
     func reduce(state: State, mutation: Mutation) -> State {
-        var newState = state
+        let newState = state
         // switch mutation {
         // }
         return newState

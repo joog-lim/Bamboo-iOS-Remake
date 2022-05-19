@@ -1,50 +1,38 @@
 import UIKit
+import Then
+import FlexLayout
+import PinLayout
 import ReactorKit
 import RxSwift
 import Base
 import UIUtil
-import Then
-import SnapKit
 import RxUtil
 
 final class OnBoardingViewController: BaseVC<OnBoardingReactor>{
     //MARK: - Properties
+    private let flexContainer = UIView()
     private let logo = UIImageView(image: UIImage(named: "BAMBOO_Logo"),contentMode: .scaleAspectFit)
-    private let userLoginButton = LoginButton(placeholder: "사용자", cornerRadius: 15)
-    private let managerBtn = LoginButton(placeholder: "관리자", cornerRadius: 15)
+    private let userLoginButton = UIButton(text: "사용자", backgroundColor: .bambooGreen,cornerRadius: 15)
+    private let managerBtn = UIButton(text: "관리자", backgroundColor: .bambooGreen,cornerRadius: 15)
     private let divider = UIView(frame: CGSize(width: 300, height: 0.5), backgroundColor: .lightGray)
     private let guestBtn = UIButton(title: "게스트로 사용하기", titleColor: .lightGray)
     
     //MARK: - Method
+    override func flexSetting() {
+        self.flexContainer.flex.paddingTop(20%).paddingHorizontal(20).define { flex in
+            flex.addItem(self.logo).height(69)
+            flex.addItem(userLoginButton).height(8%).marginTop(80%)
+            flex.addItem(managerBtn).height(8%).marginTop(4%)
+            flex.addItem(divider).height(0.5).marginTop(9%)
+            flex.addItem(guestBtn).marginTop(7%).marginHorizontal(30%)
+        }
+    }
     override func addView() {
-        view.addSubViews(logo,userLoginButton,managerBtn,divider,guestBtn)
+        view.addSubview(flexContainer)
     }
     override func setLayout() {
-        logo.snp.makeConstraints{
-            $0.centerX.equalToSuperview()
-            $0.height.equalTo(69)
-            $0.width.equalTo(bound.width/2.30)
-            $0.top.equalToSuperview().offset(bound.height/3.776744)
-        }
-        userLoginButton.snp.makeConstraints {
-            $0.height.equalTo(bound.height/20)
-            $0.left.right.equalToSuperview().inset(bound.width/18.75)
-            $0.bottom.equalTo(managerBtn.snp.top).inset(-15)
-        }
-        managerBtn.snp.makeConstraints {
-            $0.height.equalTo(bound.height/20)
-            $0.left.right.equalToSuperview().inset(bound.width/18.75)
-            $0.bottom.equalTo(divider.snp.top).inset(bound.height/25.375 * -1)
-        }
-        divider.snp.makeConstraints{
-            $0.height.equalTo(0.5)
-            $0.left.right.equalToSuperview().inset(bound.width/9.8)
-            $0.bottom.equalTo(guestBtn.snp.top).inset(bound.height/54.133 * -1)
-        }
-        guestBtn.snp.makeConstraints {
-            $0.centerX.equalToSuperview()
-            $0.bottom.equalToSuperview().inset(bound.height/7.185)
-        }
+        self.flexContainer.pin.all(view.pin.safeArea)
+        self.flexContainer.flex.layout()
     }
     
     //MARK: - Bind
@@ -53,7 +41,7 @@ final class OnBoardingViewController: BaseVC<OnBoardingReactor>{
             .map{ Reactor.Action.userLoginButtonDidTap}
             .bind(to: reactor.action)
             .disposed(by: disposeBag)
-        
+
         managerBtn.rx.tap
             .map{Reactor.Action.managerLoginButtonDidTap}
             .bind(to: reactor.action)
