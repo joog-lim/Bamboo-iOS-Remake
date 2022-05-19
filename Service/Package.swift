@@ -10,15 +10,26 @@ let package = Package(
         .library(
             name: "Service",
             targets: ["Service"]),
+        .library(
+            name: "Domain",
+            targets: ["Domain"]),
     ],
     dependencies: [
-
+        .package(url: "https://github.com/Swinject/Swinject", branch: "master"),
+        .package(url: "https://github.com/Moya/Moya", branch: "master"),
     ],
     targets: [
-        // Targets are the basic building blocks of a package. A target can define a module or a test suite.
-        // Targets can depend on other targets in this package, and on products in packages this package depends on.
         .target(
             name: "Service",
-            dependencies: []),
+            dependencies: [
+                "Swinject",
+                "Moya",
+                "Domain"
+            ]),
+        .target(
+            name: "Domain",
+            dependencies: [
+                
+            ]),
     ]
 )
