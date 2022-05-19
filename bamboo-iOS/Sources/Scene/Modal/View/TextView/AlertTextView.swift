@@ -6,7 +6,7 @@ import BamBooSetting
 final class AlertTextView : UITextView{
     private var disposeBag = DisposeBag()
     
-    init(placeholder : String? = nil , text : String? = nil, font : UIFont) {
+    init(placeholder : String? = nil , text : String? = nil, font : UIFont = UIFont.bamboo(size: 11, family: .Regular)) {
         super.init(frame: .zero, textContainer: nil)
         self.font = font
         self.text = text
