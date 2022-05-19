@@ -48,7 +48,7 @@ extension DeleteReactor {
 //MARK: - reduce
 extension DeleteReactor {
     func reduce(state: State, mutation: Mutation) -> State {
-        var newState = state
+        let newState = state
         // switch mutation {
         // }
         return newState

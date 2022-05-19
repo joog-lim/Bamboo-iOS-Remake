@@ -24,11 +24,11 @@ let package = Package(
             targets: ["BamBooSetting"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/ReactiveX/RxSwift", .branchItem("main")),
-        .package(url: "https://github.com/ReactorKit/ReactorKit", .branchItem("master")),
-        .package(url: "https://github.com/RxSwiftCommunity/RxFlow", .branchItem("main")),
-        .package(url: "https://github.com/SnapKit/SnapKit", .branchItem("develop")),
-        .package(url: "https://github.com/devxoul/Then", .branchItem("master"))
+        .package(url: "https://github.com/ReactiveX/RxSwift", branch: "main"),
+        .package(url: "https://github.com/ReactorKit/ReactorKit", branch: "master"),
+        .package(url: "https://github.com/RxSwiftCommunity/RxFlow", branch: "main"),
+        .package(url: "https://github.com/SnapKit/SnapKit", branch: "develop"),
+        .package(url: "https://github.com/devxoul/Then", branch: "master")
     ],
     targets: [
         .target(

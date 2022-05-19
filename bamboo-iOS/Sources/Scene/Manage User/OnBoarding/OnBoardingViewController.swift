@@ -1,13 +1,13 @@
 import UIKit
-import ReactorKit
-import RxSwift
-import Base
-import UIUtil
 import Then
-import SnapKit
-import RxUtil
 import FlexLayout
 import PinLayout
+import ReactorKit
+import RxSwift
+
+import Base
+import UIUtil
+import RxUtil
 
 final class OnBoardingViewController: BaseVC<OnBoardingReactor>{
     //MARK: - Properties

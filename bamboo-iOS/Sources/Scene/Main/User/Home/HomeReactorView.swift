@@ -48,7 +48,7 @@ extension HomeReactor {
 //MARK: - reduce
 extension HomeReactor {
     func reduce(state: State, mutation: Mutation) -> State {
-        var newState = state
+        let newState = state
         // switch mutation {
         // }
         return newState
