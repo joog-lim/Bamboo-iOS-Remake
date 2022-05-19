@@ -2,13 +2,13 @@ import UIKit
 
 //MARK: - Shadow extension
 public extension CALayer {
-func applySketchShadow(color: UIColor = .black,alpha: Float = 0.5,x:CGFloat,y:CGFloat,blur: CGFloat,spread: CGFloat = 0){
+    func applySketchShadow(color: UIColor = .black,alpha: Float = 0.5,x:CGFloat,y:CGFloat,blur: CGFloat,spread: CGFloat = 0){
         shadowColor = color.cgColor
         shadowOpacity = alpha
         shadowOffset = CGSize(width: x, height: y)
         shadowRadius = blur/UIScreen.main.scale
         masksToBounds = false
-    
+        
         if spread == 0 {
             shadowPath = nil
         }else {

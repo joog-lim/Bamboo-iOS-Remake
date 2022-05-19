@@ -10,6 +10,7 @@ import UIKit
 import RxFlow
 import RxRelay
 import BamBooSetting
+import PanModal
 
 struct HomeStepper: Stepper {
     let steps: PublishRelay<Step> = .init()
@@ -38,6 +39,8 @@ final class HomeFlow : Flow{
             return coordinatorToHome()
         case .ReportModalIsRequired:
             return coordinatorToReportModal()
+        case .dismiss:
+            return dismiss()
         default: return .none
         }
     }
@@ -51,8 +54,12 @@ private extension HomeFlow {
         return .one(flowContributor: .contribute(withNextPresentable: vc,withNextStepper: vc.reactor!))
     }
     func coordinatorToReportModal() -> FlowContributors{
-        let vc = AppDelegate.container.resolve(HomeViewController.self)!
-        self.rootViewController.setViewControllers([vc], animated: true)
+        let vc = AppDelegate.container.resolve(ReportModalViewController.self)!
+        self.rootViewController.visibleViewController?.presentPanModal(vc)
         return .one(flowContributor: .contribute(withNextPresentable: vc,withNextStepper: vc.reactor!))
+    }
+    func dismiss() -> FlowContributors{
+        self.rootViewController.visibleViewController?.dismiss(animated: true)
+        return  .none
     }
 }

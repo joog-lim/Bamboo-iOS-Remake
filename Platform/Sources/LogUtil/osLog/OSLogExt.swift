@@ -105,3 +105,4 @@ public extension Log {
         log(message, arguments, level: .custom(categoryName: category))
     }
 }
+

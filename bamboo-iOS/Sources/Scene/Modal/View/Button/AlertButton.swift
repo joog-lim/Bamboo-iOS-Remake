@@ -7,6 +7,7 @@ final class AlertButton : UIButton{
         self.setTitle(text, for: .normal)
         self.setTitleColor(.white, for: .normal)
         self.backgroundColor = color
+        self.layer.cornerRadius = cornerRadius!
         self.layer.applySketchShadow(color: color, alpha: 0.25, x: 1, y: 5, blur: 5, spread: 0)
     }
     @available(*,unavailable)

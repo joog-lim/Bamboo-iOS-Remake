@@ -42,7 +42,7 @@ extension HomeReactor {
     func mutate(action: Action) -> Observable<Mutation> {
         switch action{
         case .writeButtonDidTap:
-            print("writeButtonDidTap")
+            steps.accept(BambooStep.ReportModalIsRequired)
             return .empty()
         }
     }

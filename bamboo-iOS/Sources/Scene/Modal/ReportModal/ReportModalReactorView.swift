@@ -49,7 +49,7 @@ extension ReportModalReactor {
 //MARK: - reduce
 extension ReportModalReactor {
     func reduce(state: State, mutation: Mutation) -> State {
-        var newState = state
+        let newState = state
         // switch mutation {
         // }
         return newState

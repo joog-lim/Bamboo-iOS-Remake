@@ -10,10 +10,12 @@ final class AlertTextView : UITextView{
         super.init(frame: .zero, textContainer: nil)
         self.font = font
         self.text = text
+        self.text = placeholder
+        self.textColor = .systemGray3
+        self.clipsToBounds = true
         self.backgroundColor = .white
         self.layer.applySketchShadow(color: .black, alpha: 0.25, x: 1, y: 1, blur: 4, spread: 0)
         self.textAlignment = .left
-        self.clipsToBounds = true
         bindTextView(placeholder: placeholder)
     }
     @available(*, unavailable)
@@ -21,12 +23,16 @@ final class AlertTextView : UITextView{
         fatalError("init(coder:) has not been implemented")
     }
     
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        self.layer.cornerRadius = 10
+    }
     private func bindTextView(placeholder : String?){
         self.rx.didBeginEditing
             .subscribe(onNext:{ [weak self] in
                 if (self?.text == placeholder){
                     self?.text = nil
-                    self?.textColor = .systemGray5
+                    self?.textColor = .black
                 }
             }).disposed(by: disposeBag)
         
