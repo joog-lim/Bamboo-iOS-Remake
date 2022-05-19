@@ -21,4 +21,7 @@ enum BambooStep : Step{
     case StandByIsRequired
     case RefusalIsRequired
     case DeleteIsRequired
+    //MARK: - Modal
+    case ReportModalIsRequired
+    case WriteModalIsRequired
 }

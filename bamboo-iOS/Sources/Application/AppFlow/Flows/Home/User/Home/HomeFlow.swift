@@ -36,6 +36,8 @@ final class HomeFlow : Flow{
         switch step{
         case .HomeIsRequired :
             return coordinatorToHome()
+        case .ReportModalIsRequired:
+            return coordinatorToReportModal()
         default: return .none
         }
     }
@@ -44,6 +46,11 @@ final class HomeFlow : Flow{
 //MARK: - Method
 private extension HomeFlow {
     func coordinatorToHome() -> FlowContributors{
+        let vc = AppDelegate.container.resolve(HomeViewController.self)!
+        self.rootViewController.setViewControllers([vc], animated: true)
+        return .one(flowContributor: .contribute(withNextPresentable: vc,withNextStepper: vc.reactor!))
+    }
+    func coordinatorToReportModal() -> FlowContributors{
         let vc = AppDelegate.container.resolve(HomeViewController.self)!
         self.rootViewController.setViewControllers([vc], animated: true)
         return .one(flowContributor: .contribute(withNextPresentable: vc,withNextStepper: vc.reactor!))

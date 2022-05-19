@@ -4,7 +4,6 @@ import FlexLayout
 import PinLayout
 import ReactorKit
 import RxSwift
-
 import Base
 import UIUtil
 import RxUtil
@@ -28,7 +27,6 @@ final class OnBoardingViewController: BaseVC<OnBoardingReactor>{
             flex.addItem(guestBtn).marginTop(7%).marginHorizontal(30%)
         }
     }
-    
     override func addView() {
         view.addSubview(flexContainer)
     }
@@ -43,7 +41,7 @@ final class OnBoardingViewController: BaseVC<OnBoardingReactor>{
             .map{ Reactor.Action.userLoginButtonDidTap}
             .bind(to: reactor.action)
             .disposed(by: disposeBag)
-        
+
         managerBtn.rx.tap
             .map{Reactor.Action.managerLoginButtonDidTap}
             .bind(to: reactor.action)

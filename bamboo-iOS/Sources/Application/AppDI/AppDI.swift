@@ -36,6 +36,10 @@ extension Container{
         self.register(DeleteViewController.self) { r in
             return DeleteViewController(reactor: r.resolve(DeleteReactor.self))
         }
+        //MARK: - Modal
+        self.register(ReportModalViewController.self){ r in
+            return ReportModalViewController(reactor: r.resolve(ReportModalReactor.self))
+        }
     }
     
     private func registerReactor() {
@@ -65,6 +69,9 @@ extension Container{
         }
         self.register(DeleteReactor.self) { _ in
             return DeleteReactor()
+        }
+        self.register(ReportModalReactor.self) { _ in
+            return ReportModalReactor()
         }
     }
 }
