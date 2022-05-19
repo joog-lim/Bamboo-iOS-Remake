@@ -2,7 +2,6 @@ import UIKit
 import RxSwift
 import RxCocoa
 import BamBooSetting
-import UIUtil
 
 final class AlertTextView : UITextView{
     private var disposeBag = DisposeBag()
