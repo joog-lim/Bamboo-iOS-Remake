@@ -10,6 +10,10 @@ final class AlertTextView : UITextView{
         super.init(frame: .zero, textContainer: nil)
         self.font = font
         self.text = text
+        self.backgroundColor = .white
+        self.layer.applySketchShadow(color: .black, alpha: 0.25, x: 1, y: 1, blur: 4, spread: 0)
+        self.textAlignment = .left
+        self.clipsToBounds = true
         bindTextView(placeholder: placeholder)
     }
     @available(*, unavailable)
