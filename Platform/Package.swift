@@ -32,7 +32,8 @@ let package = Package(
         .package(url: "https://github.com/RxSwiftCommunity/RxFlow", branch: "main"),
         .package(url: "https://github.com/SnapKit/SnapKit", branch: "develop"),
         .package(url: "https://github.com/devxoul/Then", branch: "master"),
-        .package(url: "https://github.com/krzysztofzablocki/Inject", branch: "main")
+        .package(url: "https://github.com/krzysztofzablocki/Inject", branch: "main"),
+        .package(url: "https://github.com/AssistoLab/DropDown", branch: "master")
     ],
     targets: [
         .target(
@@ -67,7 +68,8 @@ let package = Package(
             dependencies: [
                 "UIUtil",
                 "SnapKit",
-                "Then"
+                "Then",
+                "DropDown"
             ]),
     ]
 )
