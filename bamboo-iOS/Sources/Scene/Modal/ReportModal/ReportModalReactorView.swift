@@ -18,15 +18,15 @@ final class ReportModalReactor: Reactor, Stepper {
     
     //MARK: - Reactor
     enum Action {
-        // actiom cases
+        case reportButtonDidTap
     }
     
     enum Mutation {
-        // mutation cases
+        
     }
     
     struct State {
-        //state
+        
     }
     
     let initialState: State
@@ -41,8 +41,11 @@ final class ReportModalReactor: Reactor, Stepper {
 //MARK: - Mutate
 extension ReportModalReactor {
     func mutate(action: Action) -> Observable<Mutation> {
-        // switch action {
-        // }
+         switch action {
+         case .reportButtonDidTap:
+             steps.accept(BambooStep.dismiss)
+             return .empty()
+         }
     }
 }
 

@@ -1,10 +1,3 @@
-//
-//  ReportModalViewController.swift
-//  bamboo-iOS
-//
-//  Created by Ji-hoon Ahn on 2022/05/19.
-//
-
 import UIKit
 import ReactorKit
 import RxSwift
@@ -46,6 +39,13 @@ final class ReportModalViewController: BaseVC<ReportModalReactor>{
     override func setLayout() {
         self.flexContainer.pin.all(view.pin.safeArea)
         self.flexContainer.flex.layout()
+    }
+    //MARK: - Bind
+    override func bindView(reactor: ReportModalReactor) {
+        reportBtn.rx.tap
+            .map{ Reactor.Action.reportButtonDidTap}
+            .bind(to: reactor.action)
+            .disposed(by: disposeBag)
     }
 }
 
