@@ -10,6 +10,7 @@ open class BaseVC<T: Reactor> : UIViewController{
         setupBackgroundIfNotSet()
         addView()
         configureUI()
+        flexSetting()
         keyBoardLayout()
     }
     
@@ -40,6 +41,7 @@ open class BaseVC<T: Reactor> : UIViewController{
     open func addView(){}
     open func setLayout(){}
     open func configureUI(){}
+    open func flexSetting(){}
     open func keyBoardLayout(){}
     
     open func bindView(reactor: T){}
