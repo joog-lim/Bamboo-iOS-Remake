@@ -9,9 +9,10 @@ import UIKit
 import ReactorKit
 import RxSwift
 import Base
+import UIUtil
 
 final class ReportModalViewController: BaseVC<ReportModalReactor>{
     
-    private reportModalTitleLabel = UILabel(frame: <#T##CGSize#>, backgroundColor: <#T##UIColor#>)
+    private let reportModalTitleLabel = UILabel(text: "신고하기", textColor: .systemRed)
     
 }
