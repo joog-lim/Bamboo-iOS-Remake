@@ -19,10 +19,6 @@ final class LoginButton: UIButton {
         setTitleColor(.white, for: .normal)
         titleLabel?.font = font
     }
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        
-    }
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
