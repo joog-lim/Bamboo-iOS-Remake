@@ -15,4 +15,14 @@ public extension UIButton{
         self.tintColor = tintColor
         self.backgroundColor = backgroundColor
     }
+    
+    convenience init(text : String?, backgroundColor : UIColor?, textColor : UIColor = .white ,cornerRadius : CGFloat?, font : UIFont? = UIFont.bamboo(size: 15, family: .Regular)){
+        self.init()
+        self.setTitle(text, for: .normal)
+        self.backgroundColor = backgroundColor
+        self.setTitleColor(textColor, for: .normal)
+        self.layer.cornerRadius = cornerRadius ?? 0
+        self.titleLabel?.font = font
+        self.layer.applySketchShadow(color: backgroundColor, alpha: 0.25, x: 1, y: 5, blur: 5, spread: 0)
+    }
 }
