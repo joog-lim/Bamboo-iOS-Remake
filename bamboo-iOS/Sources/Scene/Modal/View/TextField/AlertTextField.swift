@@ -1,17 +1,18 @@
 import UIKit
+import BamBooSetting
 
 final class AlertTextField : UITextField {
-    init(placeholder :String? = nil,fontSize : CGFloat, text : String? = nil, isEnabled : Bool = false) {
+    init(placeholder :String? = "",font: UIFont? = UIFont.bamboo(size: 11, family: .Regular), text : String? = "", isEnabled : Bool = false) {
         super.init(frame: .zero)
         spacing()
-        self.layer.cornerRadius = 5
-        self.font = UIFont(name: "NanumSquareRoundR", size: fontSize)
         self.attributedPlaceholder = NSAttributedString(string: placeholder ?? "", attributes: [NSAttributedString.Key.foregroundColor : UIColor.rgb(red: 196, green: 196, blue: 196)])
         self.text = text
-        self.isEnabled = isEnabled
         self.textColor = .black
+        self.font = font
+        self.isEnabled = isEnabled
         self.backgroundColor = .white
         self.borderStyle = .none
+        self.layer.cornerRadius = 5
         self.layer.applySketchShadow(color: .black, alpha: 0.25, x: 1, y: 1, blur: 4, spread: 0)
     }
     @available(*, unavailable)
@@ -31,6 +32,4 @@ final class AlertTextField : UITextField {
         leftViewMode = .always
         rightViewMode = .always
     }
-
-    
 }

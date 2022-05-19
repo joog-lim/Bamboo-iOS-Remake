@@ -19,4 +19,5 @@ final class DetailViewController: BaseVC<DetailReactor>{
         navigationController?.navigationCustomBar()
     }
     
+    
 }
