@@ -12,8 +12,8 @@ final class OnBoardingViewController: BaseVC<OnBoardingReactor>{
     //MARK: - Properties
     private let flexContainer = UIView()
     private let logo = UIImageView(image: UIImage(named: "BAMBOO_Logo"),contentMode: .scaleAspectFit)
-    private let userLoginButton = UIButton(text: "사용자", cornerRadius: 15)
-    private let managerBtn = UIButton(text: "관리자", cornerRadius: 15)
+    private let userLoginButton = UIButton(text: "사용자", backgroundColor: .bambooGreen,cornerRadius: 15)
+    private let managerBtn = UIButton(text: "관리자", backgroundColor: .bambooGreen,cornerRadius: 15)
     private let divider = UIView(frame: CGSize(width: 300, height: 0.5), backgroundColor: .lightGray)
     private let guestBtn = UIButton(title: "게스트로 사용하기", titleColor: .lightGray)
     

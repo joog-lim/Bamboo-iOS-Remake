@@ -14,7 +14,7 @@ final class ReportModalViewController: BaseVC<ReportModalReactor>{
     private let reportModalTitleLabel = UILabel(text: "신고하기", textColor: .systemRed)
     private let titleTf = AlertTextField(text: "알고리즘을 신고합니다", isEnabled: false)
     private let contentTv = AlertTextView(placeholder: "사유를 입력해주세요.\n ex) 욕설이 들어가있어요.")
-    private let reportBtn = AlertButton(text: "신고하기", color: .systemRed, cornerRadius: 5)
+    private let reportBtn = UIButton(text: "신고하기", backgroundColor: .systemRed, cornerRadius: 5)
     
     //MARK: - Method
     override func flexSetting() {

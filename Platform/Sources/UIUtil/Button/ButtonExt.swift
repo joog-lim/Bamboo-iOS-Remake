@@ -16,7 +16,7 @@ public extension UIButton{
         self.backgroundColor = backgroundColor
     }
     
-    convenience init(text : String?, backgroundColor : UIColor?, textColor : UIColor = .white ,cornerRadius : CGFloat?, font : UIFont? = UIFont.bamboo(size: 15, family: .Regular)){
+    convenience init(text : String?, backgroundColor : UIColor = .black, textColor : UIColor = .white ,cornerRadius : CGFloat?, font : UIFont? = UIFont.bamboo(size: 15, family: .Regular)){
         self.init()
         self.setTitle(text, for: .normal)
         self.backgroundColor = backgroundColor
