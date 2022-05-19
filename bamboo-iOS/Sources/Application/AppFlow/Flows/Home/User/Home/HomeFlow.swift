@@ -45,8 +45,7 @@ final class HomeFlow : Flow{
 private extension HomeFlow {
     func coordinatorToHome() -> FlowContributors{
         let vc = AppDelegate.container.resolve(HomeViewController.self)!
-        let reactor = AppDelegate.container.resolve(HomeReactor.self)!
         self.rootViewController.setViewControllers([vc], animated: true)
-        return .one(flowContributor: .contribute(withNextPresentable: vc,withNextStepper: reactor))
+        return .one(flowContributor: .contribute(withNextPresentable: vc,withNextStepper: vc.reactor!))
     }
 }

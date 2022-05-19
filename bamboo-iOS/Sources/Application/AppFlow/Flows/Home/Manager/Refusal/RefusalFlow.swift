@@ -37,8 +37,7 @@ final class RefusalFlow : Flow{
 private extension RefusalFlow {
     func coordinatorToRefusal() -> FlowContributors{
         let vc = AppDelegate.container.resolve(RefusalViewController.self)!
-        let reactor = AppDelegate.container.resolve(RefusalReactor.self)!
         self.rootViewController.setViewControllers([vc], animated: true)
-        return .one(flowContributor: .contribute(withNextPresentable: vc,withNextStepper: reactor))
+        return .one(flowContributor: .contribute(withNextPresentable: vc,withNextStepper: vc.reactor!))
     }
 }

@@ -37,8 +37,7 @@ final class AcceptFlow : Flow{
 private extension AcceptFlow {
     func coordinatorToAccept() -> FlowContributors{
         let vc = AppDelegate.container.resolve(AcceptViewController.self)!
-        let reactor = AppDelegate.container.resolve(AcceptReactor.self)!
         self.rootViewController.setViewControllers([vc], animated: true)
-        return .one(flowContributor: .contribute(withNextPresentable: vc,withNextStepper: reactor))
+        return .one(flowContributor: .contribute(withNextPresentable: vc,withNextStepper: vc.reactor!))
     }
 }

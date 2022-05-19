@@ -22,7 +22,7 @@ final class OnBoardingViewController: BaseVC<OnBoardingReactor>{
     override func flexSetting() {
         self.flexContainer.flex.paddingTop(20%).paddingHorizontal(20).define { flex in
             flex.addItem(self.logo).height(69)
-            flex.addItem(userLoginButton).height(8%).marginTop(70%)
+            flex.addItem(userLoginButton).height(8%).marginTop(80%)
             flex.addItem(managerBtn).height(8%).marginTop(4%)
             flex.addItem(divider).height(0.5).marginTop(9%)
             flex.addItem(guestBtn).marginTop(7%).marginHorizontal(30%)

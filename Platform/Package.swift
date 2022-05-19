@@ -5,11 +5,14 @@ import PackageDescription
 
 let package = Package(
     name: "Platform",
-    platforms: [.iOS(.v10)],
+    platforms: [.iOS(.v11)],
     products: [
         .library(
             name: "Base",
             targets: ["Base"]),
+        .library(
+            name: "InjectUtil",
+            targets: ["InjectUtil"]),
         .library(
             name: "UIUtil",
             targets: ["UIUtil"]),
@@ -28,7 +31,8 @@ let package = Package(
         .package(url: "https://github.com/ReactorKit/ReactorKit", branch: "master"),
         .package(url: "https://github.com/RxSwiftCommunity/RxFlow", branch: "main"),
         .package(url: "https://github.com/SnapKit/SnapKit", branch: "develop"),
-        .package(url: "https://github.com/devxoul/Then", branch: "master")
+        .package(url: "https://github.com/devxoul/Then", branch: "master"),
+        .package(url: "https://github.com/krzysztofzablocki/Inject", branch: "main")
     ],
     targets: [
         .target(
@@ -41,6 +45,11 @@ let package = Package(
             name: "UIUtil",
             dependencies: [
 
+            ]),
+        .target(
+            name: "InjectUtil",
+            dependencies: [
+                "Inject"
             ]),
         .target(
             name: "LogUtil",

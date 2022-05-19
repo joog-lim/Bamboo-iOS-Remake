@@ -18,7 +18,7 @@ final class HomeReactor: Reactor ,Stepper{
 
     //MARK: - Reactor
     enum Action {
-        // actiom cases
+        case writeButtonDidTap
     }
     
     enum Mutation {
@@ -40,8 +40,11 @@ final class HomeReactor: Reactor ,Stepper{
 //MARK: - Mutate
 extension HomeReactor {
     func mutate(action: Action) -> Observable<Mutation> {
-        // switch action {
-        // }
+        switch action{
+        case .writeButtonDidTap:
+            print("writeButtonDidTap")
+            return .empty()
+        }
     }
 }
 

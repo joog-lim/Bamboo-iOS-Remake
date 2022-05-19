@@ -2,6 +2,8 @@ import RxFlow
 import RxRelay
 import RxSwift
 import UIKit
+import Inject
+import InjectUtil
 
 struct OnBoardingStepper: Stepper{
     let steps: PublishRelay<Step> = .init()
@@ -45,8 +47,7 @@ final class OnBoardingFlow: Flow{
 private extension OnBoardingFlow{
     func coordinateToOnBoarding() -> FlowContributors {
         let vc = AppDelegate.container.resolve(OnBoardingViewController.self)!
-        self.rootVC.setViewControllers([vc], animated: true)
+        self.rootVC.setViewControllers([vc.inject()], animated: true)
         return .one(flowContributor: .contribute(withNextPresentable: vc, withNextStepper: vc.reactor!))
     }
-    
 }
