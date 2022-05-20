@@ -2,8 +2,9 @@ import DropDown
 import UIKit
 
 public extension DropDown{
-    convenience init(dataSource : [String], font : UIFont = .bamboo(size: 12, family: .Bold), cellHeight : CGFloat = 29){
+    convenience init(dataSource : [String], font : UIFont = .bamboo(size: 12, family: .Bold), cellHeight : CGFloat = 29, anchorView : UIView?){
         self.init()
+        self.anchorView = anchorView
         self.dataSource = dataSource
         self.textFont = font
         self.cellHeight = cellHeight

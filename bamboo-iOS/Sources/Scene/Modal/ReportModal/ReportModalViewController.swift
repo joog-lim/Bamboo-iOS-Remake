@@ -32,8 +32,8 @@ final class ReportModalViewController: BaseVC<ReportModalReactor>{
         RxKeyboard.instance.isHidden
             .skip(1)
             .map{ $0 ? PanModalPresentationController.PresentationState.shortForm : .longForm}
-            .drive(onNext:{ [weak self] state in
-                self?.panModalTransition(to: state)
+            .drive(onNext:{ [weak self] in
+                self?.panModalTransition(to: $0)
             }).disposed(by: disposeBag)
     }
     override func setLayout() {

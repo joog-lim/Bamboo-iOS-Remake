@@ -39,6 +39,8 @@ final class HomeFlow : Flow{
             return coordinatorToHome()
         case .ReportModalIsRequired:
             return coordinatorToReportModal()
+        case .WriteModalIsRequired:
+            return coordinatorToWritingBulletinBoardModal()
         case .dismiss:
             return dismiss()
         default: return .none
@@ -55,6 +57,11 @@ private extension HomeFlow {
     }
     func coordinatorToReportModal() -> FlowContributors{
         let vc = AppDelegate.container.resolve(ReportModalViewController.self)!
+        self.rootViewController.visibleViewController?.presentPanModal(vc)
+        return .one(flowContributor: .contribute(withNextPresentable: vc,withNextStepper: vc.reactor!))
+    }
+    func coordinatorToWritingBulletinBoardModal() -> FlowContributors{
+        let vc = AppDelegate.container.resolve(WritingBulletinBoardModalViewController.self)!
         self.rootViewController.visibleViewController?.presentPanModal(vc)
         return .one(flowContributor: .contribute(withNextPresentable: vc,withNextStepper: vc.reactor!))
     }
