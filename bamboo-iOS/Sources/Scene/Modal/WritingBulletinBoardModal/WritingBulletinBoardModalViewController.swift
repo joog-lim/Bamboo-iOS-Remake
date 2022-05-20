@@ -7,8 +7,10 @@ import PanModal
 import DropDown
 import RxKeyboard
 
+
 import Base
 import BamBooSetting
+import RxUtil
 
 final class WritingBulletinBoardModalViewController: BaseVC<WritingBulletinBoardModalReactor>{
     //MARK: - Properties
@@ -21,26 +23,28 @@ final class WritingBulletinBoardModalViewController: BaseVC<WritingBulletinBoard
     private let contentTv = AlertTextView(placeholder: "내용을 입력하세요.")
     private let passwordTitle = UILabel(text: "학교 와이파이 번호", font: .bamboo(size: 12, family: .Regular))
     private let passwordTf = AlertTextField(placeholder: "답변을 입력하세요.")
+    private let sendButton = UIButton(text: "전송", backgroundColor: .bambooGreen, cornerRadius: 5, font: .bamboo(size: 10, family: .Regular))
     
     //MARK: - Method
     override func configureUI() {
-        flexContainer.flex.define { flex in
+        flexContainer.flex.paddingTop(24).paddingHorizontal(25).define { flex in
             flex.addItem(titleLabel)
-            flex.addItem(explanationLabel)
-            flex.addItem().direction(.row).define { flex in
-                flex.addItem(titleTf)
-                flex.addItem(tagChooseBtn)
+            flex.addItem(explanationLabel).marginTop(14)
+            flex.addItem().direction(.row).marginTop(bound.height * 0.013).height(4%).define { flex in
+                flex.addItem(titleTf).grow(4)
+                flex.addItem(tagChooseBtn).marginLeft(6).grow(1)
             }
-            flex.addItem(contentTv)
-            flex.addItem(passwordTitle)
-            flex.addItem(passwordTf)
-        }.backgroundColor(.red)
+            flex.addItem(contentTv).marginTop(2%).height(20%)
+            flex.addItem(passwordTitle).marginTop(2%)
+            flex.addItem(passwordTf).marginTop(2%).height(4%)
+            flex.addItem(sendButton).marginTop(4%).height(6%)
+        }
     }
     override func addView() {
         view.addSubview(flexContainer)
     }
     override func setLayout() {
-        self.dropdown.bottomOffset = CGPoint(x: 0, y:bound.height/27.0666 + 5)
+        self.dropdown.bottomOffset = CGPoint(x: 0, y:30)
         self.flexContainer.pin.all(view.pin.safeArea)
         self.flexContainer.flex.layout()
     }
@@ -55,22 +59,18 @@ final class WritingBulletinBoardModalViewController: BaseVC<WritingBulletinBoard
     
     //MARK: - Bind
     override func bindView(reactor: WritingBulletinBoardModalReactor) {
-        tagChooseBtn.rx.tap
-            .subscribe(onNext:{
-                self.dropdown.show()
+        tagChooseBtn.rx.dropdownTap(dropdown: dropdown)
+            .subscribe(onNext:{ _ in
             }).disposed(by: disposeBag)
         
-        dropdown.rx.selectionAction.on(.next({ index, item in
-            self.tagChooseBtn.setTitle(item, for: .normal)
-        }))
     }
     
 }
 extension WritingBulletinBoardModalViewController : PanModalPresentable{
     var panScrollable: UIScrollView? {return nil}
     var panModalBackgroundColor: UIColor{return .black.withAlphaComponent(0.1)}
-    var shortFormHeight: PanModalHeight {return .contentHeight(bound.height * 0.4)}
-    var longFormHeight: PanModalHeight {return .contentHeight(bound.height * 0.7)}
+    var shortFormHeight: PanModalHeight {return .contentHeight(bound.height * 0.5)}
+    var longFormHeight: PanModalHeight {return .contentHeight(bound.height * 0.8)}
     var cornerRadius: CGFloat {return 20}
     var showDragIndicator: Bool {return false}
 }

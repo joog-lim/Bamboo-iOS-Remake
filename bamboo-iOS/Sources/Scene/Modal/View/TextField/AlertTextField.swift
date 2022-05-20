@@ -2,7 +2,7 @@ import UIKit
 import BamBooSetting
 
 final class AlertTextField : UITextField {
-    init(placeholder :String? = "",font: UIFont? = UIFont.bamboo(size: 11, family: .Regular), text : String? = "", isEnabled : Bool = false) {
+    init(placeholder :String? = "",font: UIFont? = UIFont.bamboo(size: 11, family: .Regular), text : String? = "", isEnabled : Bool = true) {
         super.init(frame: .zero)
         spacing()
         self.attributedPlaceholder = NSAttributedString(string: placeholder ?? "", attributes: [NSAttributedString.Key.foregroundColor : UIColor.rgb(red: 196, green: 196, blue: 196)])

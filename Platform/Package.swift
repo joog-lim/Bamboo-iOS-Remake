@@ -61,7 +61,8 @@ let package = Package(
             name: "RxUtil",
             dependencies: [
                 "RxSwift",
-                "RxFlow"
+                "RxFlow",
+                "DropDown"
             ]),
         .target(
             name: "BamBooSetting",
