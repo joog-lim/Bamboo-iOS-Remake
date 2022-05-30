@@ -1,4 +1,5 @@
 import UIKit
+import PinLayout
 import BamBooSetting
 
 final class AlertTextField : UITextField {
@@ -23,10 +24,7 @@ final class AlertTextField : UITextField {
     //MARK: - Method
     private  func spacing(){
         let view = UIView()
-        view.snp.makeConstraints { (make) in
-            make.height.equalTo(frame.height)
-            make.width.equalTo(6)
-        }
+        view.pin.height(frame.height).width(6)
         rightView = view
         leftView = view
         leftViewMode = .always

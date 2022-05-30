@@ -1,10 +1,3 @@
-//
-//  File.swift
-//  
-//
-//  Created by Ji-hoon Ahn on 2022/05/18.
-//
-
 import UIKit
 import Then
 import SnapKit
@@ -13,10 +6,10 @@ import UIUtil
 //MARK: - Navigation Setting
 public extension UINavigationItem {
     func applyImageNavigation(){
-        let iv = UIImageView(image: UIImage(named: "BAMBOO_Logo"))
-        iv.snp.makeConstraints { (make) in
-            make.height.equalTo(19)
-            make.width.equalTo(44)
+        let iv = UIImageView(image: UIImage(named: "BAMBOO_Logo"), contentMode: .scaleAspectFit)
+        iv.snp.makeConstraints{
+            $0.width.equalTo(44)
+            $0.height.equalTo(20)
         }
         titleView = iv
     }

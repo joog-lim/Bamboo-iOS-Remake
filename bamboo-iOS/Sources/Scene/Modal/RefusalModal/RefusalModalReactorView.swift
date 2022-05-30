@@ -1,12 +1,16 @@
+//
+//  RefusalModalReactorView.swift
+//  bamboo-iOS
+//
+//  Created by Ji-hoon Ahn on 2022/05/30.
+//
+
 import Foundation
 import ReactorKit
 import RxSwift
-import RxRelay
-import RxFlow
 
-final class EditContentModalReactor: Reactor , Stepper{
+final class RefusalModalReactor: Reactor {
     
-    var steps: PublishRelay<Step> = .init()
     private let disposeBag: DisposeBag = .init()
     
     //MARK: - Reactor
@@ -31,17 +35,17 @@ final class EditContentModalReactor: Reactor , Stepper{
 }
 
 //MARK: - Mutate
-extension EditContentModalReactor {
+extension RefusalModalReactor {
     func mutate(action: Action) -> Observable<Mutation> {
-        // switch action {
-        // }
+         switch action {
+         }
     }
 }
 
 //MARK: - reduce
-extension EditContentModalReactor {
+extension RefusalModalReactor {
     func reduce(state: State, mutation: Mutation) -> State {
-        let newState = state
+        var newState = state
         // switch mutation {
         // }
         return newState
