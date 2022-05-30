@@ -1,12 +1,9 @@
 import Foundation
 import ReactorKit
 import RxSwift
-import RxRelay
-import RxFlow
 
-final class DetailReactor: Reactor ,Stepper{
+final class EditContentModalReactorView: Reactor {
     
-    var steps: PublishRelay<Step> = .init()
     private let disposeBag: DisposeBag = .init()
     
     //MARK: - Reactor
@@ -31,7 +28,7 @@ final class DetailReactor: Reactor ,Stepper{
 }
 
 //MARK: - Mutate
-extension DetailReactor {
+extension EditContentModalReactorView {
     func mutate(action: Action) -> Observable<Mutation> {
         // switch action {
         // }
@@ -39,9 +36,9 @@ extension DetailReactor {
 }
 
 //MARK: - reduce
-extension DetailReactor {
+extension EditContentModalReactorView {
     func reduce(state: State, mutation: Mutation) -> State {
-        let newState = state
+        var newState = state
         // switch mutation {
         // }
         return newState

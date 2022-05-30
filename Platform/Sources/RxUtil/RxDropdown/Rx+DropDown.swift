@@ -5,9 +5,10 @@ import UIKit
 
 extension Reactive where Base : DropDown{
 
+
     public func show(dropdown : DropDown) -> Observable<DropDown>{
         dropdown.show()
-        print("경모")
+        
         return .empty()
     }
 }

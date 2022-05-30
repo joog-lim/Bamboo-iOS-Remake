@@ -1,10 +1,3 @@
-//
-//  RuleReactorView.swift
-//  bamboo-iOS
-//
-//  Created by Ji-hoon Ahn on 2022/05/18.
-//
-
 import Foundation
 import ReactorKit
 import RxSwift
@@ -18,7 +11,7 @@ final class RuleReactor: Reactor ,Stepper{
     
     //MARK: - Reactor
     enum Action {
-        // actiom cases
+        case viewDidLoad
     }
     
     enum Mutation {
@@ -40,8 +33,11 @@ final class RuleReactor: Reactor ,Stepper{
 //MARK: - Mutate
 extension RuleReactor {
     func mutate(action: Action) -> Observable<Mutation> {
-        // switch action {
-        // }
+         switch action {
+         case .viewDidLoad:
+             
+             return.empty()
+         }
     }
 }
 
