@@ -10,17 +10,18 @@ import BamBooSetting
 final class RuleViewController: BaseVC<RuleReactor>{
     
     //MARK: - Properties
-    private let flexContainer = UIView()
+    private let webView = WKWebView()
     
     //MARK: - Method
     override func configureUI() {
         navigationItem.applyImageNavigation()
         navigationController?.navigationCustomBar()
     }
-    
+    override func addView() {
+        view.addSubview(webView)
+    }
     override func setLayout() {
-        self.flexContainer.pin.all(view.pin.safeArea)
-        self.flexContainer.flex.layout()
+        self.webView.pin.all(view.pin.safeArea)
     }
     //MARK: - Bind
     override func bindAction(reactor: RuleReactor) {

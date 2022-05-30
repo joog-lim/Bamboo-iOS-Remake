@@ -12,7 +12,6 @@ import BamBooSetting
 final class HomeViewController: BaseVC<HomeReactor>{
     
     //MARK: - Properties
-    private let flexContainer = UIView()
     private let writeButton = UIButton(image: UIImage(named: "BAMBOO_Pencil")!, tintColor: .white, backgroundColor: .bambooGreen)
 
     //MARK: - Method
@@ -20,18 +19,12 @@ final class HomeViewController: BaseVC<HomeReactor>{
         navigationItem.applyImageNavigation()
         navigationController?.navigationCustomBar()
     }
-    override func flexSetting() {
-        flexContainer.flex.define { flex in
-            flex.addItem(writeButton).end(0).size(60)
-        }
-    }
     override func addView() {
-        view.addSubview(flexContainer)
+        view.addSubview(writeButton)
     }
     override func setLayout() {
-        writeButton.layer.cornerRadius = writeButton.frame.height/2
-        self.flexContainer.pin.all(view.pin.safeArea)
-        self.flexContainer.flex.layout()
+        self.writeButton.layer.cornerRadius = 30
+        self.writeButton.pin.size(60).bottom(view.pin.safeArea + 20).right(20)
     }
     
     
